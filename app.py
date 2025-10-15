@@ -54,3 +54,13 @@ def extract_text_from_pptx(pptx_bytes: bytes) -> str:
             if hasattr(shape, "text"):
                 text += shape.text + "\n"
     return text.strip()
+
+from fastapi.middleware.cors import CORSMiddleware
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"], 
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
